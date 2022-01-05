@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RAce Poker</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/f848529d90.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="" crossorigin="anonymous"></script>
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Roboto+Mono:wght@200&family=Zen+Kaku+Gothic+New:wght@300;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="global select-none">
+    <header id="header"
+            class="navbar h-24 justify-between
+                   items-center pl-16 pr-12 fixed w-screen hidden md:flex">
+      <div class="logo">
+        <img alt="logo" src="images/logo-faded.svg" class="h-12"/>
+        <div class="logo-title">
+          RAce Poker
+        </div>
+      </div>
+      <nav class="text-xl flex">
+        <div class="mx-4 nav-item nav-item-not-ready">
+          <a>Trade</a>
+        </div>
+        <div class="mx-4 nav-item nav-item-not-ready">
+          <a>Source</a>
+        </div>
+        <div class="mx-4 nav-item">
+          <a target="_blank"
+             href="/whitepaper.html"
+             class="cursor-pointer">
+            Whitepaper
+          </a>
+        </div>
+        <div class="mx-4 nav-item">
+          <a href="mailto:race.game.team@gmail.com" class="cursor-pointer">Contact</a>
+        </div>
+
+        <div class="community-icon w-12 ml-6">
+          <a href="https://discord.gg/tzR4sHjNNx" class="cursor-pointer">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+
+        <div class="community-icon w-12 ml-2">
+          <a href="https://t.me/racegame" class="cursor-pointer">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+        </div>
+        <div class="community-icon w-12 ml-2" class="cursor-pointer">
+          <a href="https://medium.com/@race.game.team">
+            <i class="fab fa-medium"></i>
+          </a>
+        </div>
+        <div class="community-icon w-12 ml-2" class="cursor-pointer">
+          <a href="https://twitter.com/team_racegame">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="flex flex-col items-center max-w-72">
+      <!-- Banner Page -->
+      <section id="page-banner" class="banner flex-col relative">
+        <h1 class="title mb-8">RAce Poker</h1>
+        <!-- Slogan -->
+        <div class="relative">
+          <!-- invisible slogan for width calculation -->
+          <p class="slogan hidden md:block md:invisible">
+            Redefine the BEST online poker with Web3 technology.
+          </p>
+          <!-- real content -->
+          <div class="absolute top-0 bottom-0 left-0 right-0 flex justify-center">
+            <p class="slogan anim-typewriter hidden md:block">
+              Redefine the
+              <span class="text-red-600">BEST</span>
+              online poker with Web3 technology.</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row">
+          <!-- <div class="button"> -->
+            <!--   Launch Test App -->
+            <!-- </div> -->
+          <div class="button-not-ready">
+            <div class="inner">Launch</div>
+            <div class="outer">comming soon</div>
+          </div>
+          <div class="button-not-ready">
+            <div class="inner">Trade</div>
+            <div class="outer">comming soon</div>
+          </div>
+          <a class="button"
+             target="_blank"
+             href="/whitepaper.html">
+            Whitepaper
+          </a>
+        </div>
+        <div id="button-start" class="absolute bottom-4 gold cursor-pointer">
+          <i class="fa fa-angle-down animate-bounce" style="font-size:2rem"></i>
+        </div>
+      </section>
+
+      <!-- Consesus Driven -->
+      <section id="page-1" class="feature flex-col lg:flex-row relative">
+        <div class="w-2/3 flex flex-col z-10">
+          <div class="text-content">
+            <h1 class="title">Consensus Driven</h1>
+            <div class="max-w-md lg:max-w-xl">
+              <p class="text-gray-300">
+                Safety and fairness are our primary goals, and web3 technology make it real.
+                The whole game progress is driven by consensus, all clients will work together to act as the dealer.
+                The fairness is well-guaranteed since no one can know your card without the consent of everyone in the game.
+              </p>
+            </div>
+
+            <div class="leading-loose text-2xl mt-8">
+              <i class="fa fa-dice-d20 mr-2" aria-hidden="true"></i>
+              Decentralized Shuffling</div>
+            <div class="leading-loose text-2xl">
+              <i class="fa fa-shield-alt mr-2" aria-hidden="true"></i>
+              Data sharing with encryption
+            </div>
+            <div class="leading-loose text-2xl">
+              <i class="fa fa-fingerprint mr-2" aria-hidden="true"></i>
+              Verification with blockchain
+            </div>
+          </div>
+        </div>
+
+        <!-- background animation -->
+        <div class="hidden md:block flex-1 absolute top-0 left-0 right-0 bottom-0 bg-gray-500">
+          <canvas id="model-computer" class="w-full h-full"></canvas>
+        </div>
+      </section>
+
+      <!-- Leveraging The Eco-System -->
+      <section id="page-2" class="page feature flex-col">
+        <div class="flex h-48 justify-center">
+          <div class="text-content">
+            <h1 class="title text-center">Leveraging The Eco-System</h1>
+            <p class="text-gray-400">
+              We embrace the community, you can play the game with any token in your wallet.
+            </p>
+            <p class="text-gray-400">
+              Addtionally, how about showing off your favorite NFT as your game avatar?
+            </p>
+          </div>
+        </div>
+        <div class="flex-1 flex flex-col justify-center w-full md:w-3/4 lg:w-2/3">
+          <img class="w-full" alt="preview" src="images/preview.png"/>
+        </div>
+      </section>
+
+      <!-- Collective NFT -->
+      <section id="page-3" class="page feature-nft flex-col relative">
+        <div class="flex h-48 justify-center">
+          <div class="text-content">
+            <h1 class="title text-center">Collective NFT</h1>
+            <p class="text-gray-400">
+              NFTs is distributed for a variety of uses.
+            </p>
+            <p class="text-gray-400">
+              Collect tokens by participating in our events or trading in the marketplace
+            </p>
+          </div>
+        </div>
+        <div class="flex-1"></div>
+        <div class="flex flex-col w-full justify-between items-stretch">
+          <canvas id="model-feature" class="w-full h-[40em]"></canvas>
+        </div>
+        <h3 class="tip">/* We care about the collection value */</h3>
+      </section>
+
+      <!-- No Deposit -->
+      <section id="page-4" class="page feature-no-deposit flex-col relative">
+        <div class="text-content w-2/3">
+          <h1 class="title text-center"><span class="text-red-500">NO</span> Deposit</h1>
+        </div>
+        <div class="w-1/2">
+          <p class="text-gray-400 text-xl">
+            RAce Poker will never ask you to deposit.  Your assets will be either in your wallet or on the poker table.
+            Security of funds does not come from our "promises", but is guaranteed by the blockchain and public audits.
+            All game funds flow is transparent and open. There's no middleman, game assets are transafered between players.
+          </p>
+        </div>
+
+        <div class="gear gear-1"></div>
+        <div class="gear gear-2"></div>
+        <div class="gear gear-3"></div>
+        <div class="gear gear-4"></div>
+        <div class="gear gear-5"></div>
+      </section>
+
+      <!-- Tokenomics -->
+      <section id="page-5" class="page tokenomics flex-col">
+        <h1 class="title text-center">Tokenomics</h1>
+        <div class="mint-address text-xs text-gray-300 animate-pulse">
+          TOKEN MINT:
+          <a class="font-mono"
+             title="Check it on the explorer"
+             target="_blank"
+             href="https://explorer.solana.com/address/RACE5fnTKB9obGtCusArTQ6hhdNXAtf3HarvJM17rxJ">
+            <span class="font-bold gold">RACE</span>5fnTKB9obGtCusArTQ6hhdNXAtf3HarvJM17rxJ
+          </a>
+        </div>
+
+        <div class="piechart-wrapper">
+          <canvas id="token-distribution"></canvas>
+        </div>
+
+        <div class="flex-1 flex flex-col items-stretch w-2/3">
+          <div class="flex-1 flex w-full flex-col md:flex-row">
+            <div class="flex-1 p-2">
+              <div class="box box-aces">
+                <h1><i class="fas fa-unlock-alt"></i>&nbsp;Unlock Game Level</h1>
+                <p>
+                  Upgrade game levels by stacking $RACE.
+                </p>
+              </div>
+            </div>
+            <div class="flex-1 p-2">
+              <div class="box box-chips">
+                <h1><i class="fas fa-coins"></i>&nbsp;As game chips</h1>
+                <p>
+                  $RACE can be used as chips in game.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 flex w-full flex-col md:flex-row">
+            <div class="flex-1 p-2">
+              <div class="box box-tournament">
+                <h1><i class="fas fa-ticket-alt"></i>&nbsp;Tournament Tickets</h1>
+                <p>
+                  $RACE is used as ticket for tournaments and guarantee for different levels.
+                </p>
+              </div>
+            </div>
+            <div class="flex-1 p-2">
+              <div class="box box-scales">
+                <h1><i class="fas fa-balance-scale-left"></i>&nbsp;Deflation</h1>
+                <p>
+                  $RACE will be burned during NFT casting and tournaments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap -->
+      <section id="page-6" class="roadmap">
+        <h1 class="title text-center">Roadmap</h1>
+        <div class="line">
+          <div class="box-right">
+            <div class="box-dot box-dot-current"></div>
+            <div class="box-dot"></div>
+            <div class="box box-current box-hidden">
+              <h3>2021·Q4
+                <div class="box-indicator-group">
+                  <div class="box-indicator box-indicator-1"></div>
+                  <div class="box-indicator box-indicator-2"></div>
+                  <div class="box-indicator box-indicator-3"></div>
+                </div>
+              </h3>
+              <ul>
+                <li>Official website publish</li>
+                <li>Community construction</li>
+                <li>Open source</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="box-right md:box-left box-hidden hidden">
+            <div class="box-dot"></div>
+            <div class="box box-hidden">
+              <h3>2022·Q1
+                <div class="box-indicator-group">
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                </div>
+              </h3>
+              <ul>
+                <li>Early access(testnet)</li>
+                <li>Early access reward(airdrop/IDO)</li>
+                <li>$RACE on Coinmarketcap/Coingecko</li>
+                <li>Contract audit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="box-right">
+            <div class="box-dot"></div>
+            <div class="box box-hidden">
+              <h3>2022·Q2
+                <div class="box-indicator-group">
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                </div>
+              </h3>
+              <ul>
+                <li>$RACE on DEX</li>
+                <li>Token stack</li>
+                <li>Mainnet launch</li>
+                <li>Contract Audit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="box-right md:box-left">
+            <div class="box-dot"></div>
+            <div class="box box-hidden">
+              <h3>2022·Q3
+                <div class="box-indicator-group">
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                </div>
+              </h3>
+              <ul>
+                <li>NFT airdrop/pre-sale</li>
+                <li>Marketplace launch</li>
+                <li>Tournament Integration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="line">
+          <div class="box-right">
+            <div class="box-dot"></div>
+            <div class="box box-hidden">
+              <h3>2022·Q4
+                <div class="box-indicator-group">
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                  <div class="box-indicator-inactive"></div>
+                </div>
+              </h3>
+              <ul>
+                <li>Decentralized game platform</li>
+                <li>More games</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Join The Community -->
+      <section id="page-7" class="join-community">
+        <h1 class="font-bold">Join Our Community</h1>
+        <div class="self-stretch flex justify-center">
+          <a class="w-72 h-16 flex justify-center items-center cursor-pointer"
+            href="https://discord.gg/tzR4sHjNNx">
+            <i class="fab fa-discord"></i>
+            <span class="ml-4 text-xl">Discord</span>
+          </a>
+          <a class="w-72 h-16 flex justify-center items-center cursor-pointer"
+            href="https://t.me/racegame">
+            <i class="fab fa-telegram-plane"></i>
+            <span class="ml-4 text-xl">Telegram</span>
+          </a>
+          <a class="w-72 h-16 flex justify-center items-center cursor-pointer"
+             href="https://medium.com/@race.game.team">
+            <i class="fab fa-medium"></i>
+            <span class="ml-4 text-xl">Medium</span>
+          </a>
+          <a class="w-72 h-16 flex justify-center items-center cursor-pointer"
+             href="https://twitter.com/team_racegame">
+            <i class="fab fa-twitter"></i>
+            <span class="ml-4 text-xl">Twitter</span>
+          </a>
+        </div>
+
+        <h1 class="font-bold my-20">Powered By</h1>
+
+        <div class="w-2/3 max-w-[18em] flex justify-between">
+          <div class="brand">
+            <img src="https://solana.com/branding/new/horizontal/logo-horizontal-gradient-dark.svg"/>
+          </div>
+          <div class="brand">
+            <img src="images/arweave.png"/>
+          </div>
+      </section>
+
+      <div id="back-to-top" class="back-to-top">
+        <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+      </div>
+    </main>
+
+    <footer>
+      <div class="text-center text-gray-500 text-right">
+        © 2021 racepoker.app All rights reserved.
+      </div>
+    </footer>
+
+    <script src="src/paging.js" type="text/javascript"></script>
+    <script src="src/token_distribution.js" type="text/javascript"></script>
+    <script src="src/feature_model.js" type="text/javascript"></script>
+  </body>
+</html>
