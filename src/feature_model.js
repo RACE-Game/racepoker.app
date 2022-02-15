@@ -74,12 +74,16 @@ function renderComputerModel(targetId) {
   scene = createScene(scene);
   sceneToRender = scene;
 
-  // Start rendering the scene based on the engine render loop.
-  engine.runRenderLoop(function () {
-    if (sceneToRender) {
-      sceneToRender.render();
-    }
-  });
+  window.setTimeout(() => {
+    engine.stopRenderLoop();
+    let lastTime = new Date().getTime();
+    const fpsLabel = document.getElementsByClassName("fps")[0];
+    window.setInterval(() => {
+      scene.render();
+      let curTime = new Date().getTime();
+      lastTime = curTime;
+    }, 1000 / 24);
+  }, 100);
 
   // Resize
   window.addEventListener("resize", function () {
@@ -170,12 +174,16 @@ function renderFeatureModel(targetId) {
   scene = createScene(scene);
   sceneToRender = scene;
 
-  // Start rendering the scene based on the engine render loop.
-  engine.runRenderLoop(function () {
-    if (sceneToRender) {
-      sceneToRender.render();
-    }
-  });
+  window.setTimeout(() => {
+    engine.stopRenderLoop();
+    let lastTime = new Date().getTime();
+    const fpsLabel = document.getElementsByClassName("fps")[0];
+    window.setInterval(() => {
+      scene.render();
+      let curTime = new Date().getTime();
+      lastTime = curTime;
+    }, 1000 / 24);
+  }, 100);
 
   // Resize
   window.addEventListener("resize", function () {
