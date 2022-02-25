@@ -500,3 +500,15 @@ section .title {
   animation: rotate-kf 1.5s infinite linear;
   animation-delay: 500ms;
 }
+
+.sticky-link {
+  @apply mx-3 p-3 rounded-b-lg drop-shadow-lg cursor-pointer text-sm;
+  background: black;
+  color: var(--gold);
+  transition: filter 0.5s, padding 0.5s;
+}
+
+.sticky-link:hover {
+  @apply pt-4;
+  filter: brightness(120%);
+}
